@@ -105,7 +105,7 @@ fetch(`${gr}`)
     data: {
       labels: tahun,
       datasets: [{
-        label: 'Jumlah Penduduk Teluk Wondama',
+        label: 'Gini Ratio',
         data: gR,
         backgroundColor: 'transparent',
         borderColor: '#007bff',
@@ -151,7 +151,7 @@ fetch(`${gr}`)
     data: {
       labels: tahun,
       datasets: [{
-        label: 'Jumlah Penduduk Teluk Wondama',
+        label: 'Usia Harapan Hidup (Tahun)',
         data: uhh,
         backgroundColor: '#007bff',
         borderColor: '#007bff',
@@ -197,7 +197,7 @@ fetch(`${gr}`)
     data: {
       labels: tahun,
       datasets: [{
-        label: 'Jumlah Penduduk Teluk Wondama',
+        label: 'Harapan Lama Sekolah (Tahun)',
         data: hls,
         backgroundColor: '#007bff',
         borderColor: '#007bff',
@@ -243,7 +243,7 @@ fetch(`${gr}`)
     data: {
       labels: tahun,
       datasets: [{
-        label: 'Jumlah Penduduk Teluk Wondama',
+        label: 'IPM',
         data: ipm,
         backgroundColor: 'transparent',
         borderColor: '#007bff',
