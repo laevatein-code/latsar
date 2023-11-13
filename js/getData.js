@@ -469,3 +469,85 @@ fetch(`${url_kondef}`)
 
     new DataTable("#tabelKondef");
   })
+
+// Get Naker
+const url_naker = "https://script.google.com/macros/s/AKfycbza4rSY3DM5GPKJsLln9D_0RGGva-te7-iSswHkj1Z4-KjA7ySlR4-NPpoCwAA_3NFr/exec";
+const cNaker = document.getElementById("chartNaker");
+
+fetch(`${url_naker}`)
+.then(response => response.json())
+.then(({data})=> {
+  let tahun = [];
+  let tpak = [];
+  let tpt = [];
+  for(const item of data){
+    tahun.push(item['Tahun']);
+    tpak.push(item['TPAK']);
+    tpt.push(item["TPT"]);
+  }
+  
+  var mode = 'index'
+  var intersect = true
+
+  new Chart(cNaker, {
+    type: 'line',
+    data: {
+      labels: tahun,
+      datasets: [{
+        label: 'Tingkat Pengangguran Terbuka (persen)',
+        data: tpt,
+        backgroundColor: 'transparent',
+        borderColor: '#007bff',
+        pointBorderColor: '#007bff',
+        pointBackgroundColor: '#007bff',
+        fill: false
+      },{
+        label: 'Tingkat Partisipasi Angkatan Kerja (persen)',
+        data: tpak,
+        backgroundColor: 'transparent',
+        borderColor: 'red',
+        pointBorderColor: 'red',
+        pointBackgroundColor: 'red',
+        fill: false
+      }]
+    },
+    options: {
+      interaction: {
+        intersect: false
+      },
+      maintainAspectRatio: false,
+      tooltips: {
+        mode: mode,
+        intersect: intersect
+      },
+      hover: {
+        mode: mode,
+        intersect: intersect
+      },
+      plugins: {
+        legend: false
+      },
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: 'Tahun'
+          },
+          grid: {
+            display: false
+          }
+        },
+        y: {
+          title: {
+            display: true,
+            text: 'Persen(%)'
+          },
+          grid: {
+            display: false
+          }
+        }
+      }
+    },
+  });
+
+})
