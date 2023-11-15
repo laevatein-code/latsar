@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <title>Datuk Wondama</title>
+    <link rel="icon" href="assets/logo.png" type="image/x-icon">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link href="css/dashboard.css" rel="stylesheet">
@@ -23,12 +24,6 @@
               <a href="#myDiv" class="nav-link text-light">About</a>
             </li>
             <li class="nav-item">
-              <a href="#bab1" class="nav-link text-light">Sosial dan Kependudukan</a>
-            </li>
-            <li class="nav-item">
-              <a href="#bab2" class="nav-link text-light">Ekonomi</a>
-            </li>
-            <li class="nav-item">
               <a href="#bab3" class="nav-link text-light">Konsep dan Definisi</a>
             </li>
           </ul>
@@ -44,13 +39,13 @@
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
           </div>
-          <div class="carousel-inner">
+          <div class="carousel-inner" style="background-image: url(assets/photo1.jpg); background-position: center; background-repeat: no-repeat; background-attachment: fixed; background-size: cover;">
             <div class="carousel-item active">
-              <section class="jumbotron text-center text-light" style="background-color: #5a5a5a;">
+              <section class="jumbotron text-center text-light">
                 <div class="container">
-                  <h1 class="jumbotron-heading">
-                    <strong>DATUK WONDAMA</strong>
-                  </h1>
+                  <div class="jumbotron-heading pb-3">
+                    <img src="assets/logo.png" alt="Logo Datuk Wondama" width="200" height="200" >
+                  </div>
                   <div class="lead text-muted">
                     <p style="color: #fff;">Datuk Wondama merupakan akronim dari Data untuk Wondama yang menyediakan informasi seputar data strategis yang ada di Kabupaten Teluk Wondama</p>
                   </div>
@@ -58,19 +53,20 @@
               </section>
             </div>
             <div class="carousel-item">
-              <section class="jumbotron text-center text-light" style="background-color: #5a5a5a;">
+              <section class="jumbotron text-center text-light">
                 <div class="container">
                   <h1 class="jumbotron-heading">
-                    <strong>DATUK WONDAMA</strong>
+                    <strong>TELUK WONDAMA</strong>
                   </h1>
                   <div class="lead text-muted">
-                    <p style="color: #fff;">Datuk Wondama merupakan akronim dari Data untuk Wondama yang menyediakan informasi seputar data strategis yang ada di Kabupaten Teluk Wondama</p>
+                    <p style="color: #fff;">Kabupaten Teluk Wondama adalah salah satu kabupaten di provinsi Papua Barat, Indonesia. Ibukota kabupaten Teluk Wondama terletak di Distrik Rasiey.</p>
+                    <a href="http://www.wondamakab.go.id/" class="link-info"><strong>Tentang Wondama</strong></a>
                   </div>
                 </div>
               </section>
             </div>
             <div class="carousel-item">
-              <section class="jumbotron text-center text-light" style="background-color: #5a5a5a;">
+              <section class="jumbotron text-center text-light">
                 <div class="container">
                   <h1 class="jumbotron-heading">
                     <strong>DATUK WONDAMA</strong>
@@ -104,7 +100,7 @@
         <div class="pb-5 bg-light">
           <div id="bab1" class="py-3">
             <div class="container">
-              <h1>Sosial dan Kependudukan</h1>
+              <h1>Dashboard Teluk Wondama</h1>
             </div>
           </div>
           <div class="container">
@@ -262,19 +258,30 @@
             </div>
           </div>
           <div id="bab2" class="pb-3">
-            <div class="container pb-3">
-              <h1>Ekonomi</h1>
-            </div>
             <div class="container">
-              <div class="row">
+              <div class="row mb-3">
                 <div class="col">
                   <div class="card">
-                    <div class="card-header">
-                      <p class="card-title">PDRB</p>
+                    <div class="card-header" style="background-color: #fff;">
+                      <p class="card-title">PDRB ADHB</p>
                     </div>
                     <div class="card-body">
                       <div class="tab-content p-0">
-                        <canvas id="chartPdrb" style="height: 300px;"></canvas>
+                        <canvas id="chartPdrbB" style="height: 300px;"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="card">
+                    <div class="card-header" style="background-color: #fff;">
+                      <p class="card-title">PDRB ADHK</p>
+                    </div>
+                    <div class="card-body">
+                      <div class="tab-content p-0">
+                        <canvas id="chartPdrbK" style="height: 300px;"></canvas>
                       </div>
                     </div>
                   </div>

@@ -15,9 +15,11 @@ fetch(`${url}`)
   .then(({data})=> {
     let tahun = [];
     let penduduk = [];
+    let sumber = [];
     for(const item of data){
       tahun.push(item['Tahun']);
       penduduk.push(item['Jumlah Penduduk']);
+      sumber.push(item['Sumber'])
     }
     
     var mode = 'index'
@@ -75,6 +77,8 @@ fetch(`${url}`)
         }
       },
     });
+
+    
 
   })
 
@@ -354,29 +358,85 @@ fetch(`${url_kepadatan_penduduk}`)
 
 // Get PDRB
 const url_pdrb = "https://script.google.com/macros/s/AKfycbxfqq8ZkGM8JKmc7ov0FrF3e9cw_pQ9P167_BECpT7enGYusi1dz9RyPH4Q41ddN_1CQw/exec";
-const cPdrb = document.getElementById("chartPdrb");
+const cPdrbB = document.getElementById("chartPdrbB");
+const cPdrbK = document.getElementById("chartPdrbK");
 
 
 fetch(`${url_pdrb}`)
   .then(response => response.json())
   .then(({data})=> {
     let tahun = [];
-    let pdrb = [];
+    let pdrbB = [];
+    let pdrbK = [];
     for(const item of data){
       tahun.push(item['Tahun']);
-      pdrb.push(item['PDRB']);
+      pdrbB.push(item['PDRB ADHB']);
+      pdrbK.push(item['PDRB ADHK']);
     }
     
     var mode = 'index'
     var intersect = true
 
-    new Chart(cPdrb, {
+    new Chart(cPdrbB, {
       type: 'line',
       data: {
         labels: tahun,
         datasets: [{
-          label: 'PDRB Kabupaten Teluk Wondama (Juta Rupiah)',
-          data: pdrb,
+          label: 'PDRB ADHB Kabupaten Teluk Wondama (Juta Rupiah)',
+          data: pdrbB,
+          backgroundColor: 'transparent',
+          borderColor: '#007bff',
+          pointBorderColor: '#007bff',
+          pointBackgroundColor: '#007bff',
+          fill: false
+        }]
+      },
+      options: {
+        interaction: {
+          intersect: false
+        },
+        maintainAspectRatio: false,
+        tooltips: {
+          mode: mode,
+          intersect: intersect
+        },
+        hover: {
+          mode: mode,
+          intersect: intersect
+        },
+        plugins: {
+          legend: false
+        },
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: 'Tahun'
+            },
+            grid: {
+              display: false
+            }
+          },
+          y: {
+            title: {
+              display: true,
+              text: 'PDRB (Juta Rupiah)'
+            },
+            grid: {
+              display: false
+            }
+          }
+        }
+      },
+    });
+
+    new Chart(cPdrbK, {
+      type: 'line',
+      data: {
+        labels: tahun,
+        datasets: [{
+          label: 'PDRB ADHK Kabupaten Teluk Wondama (Juta Rupiah)',
+          data: pdrbK,
           backgroundColor: 'transparent',
           borderColor: '#007bff',
           pointBorderColor: '#007bff',
