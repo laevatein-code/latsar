@@ -294,10 +294,16 @@ fetch(`${url_kepadatan_penduduk}`)
 .then(({data})=> {
   let tahun = [];
   let kepadatanPenduduk = [];
+  let sumber = [];
+  let interpretasi = [];
   for(const item of data){
     tahun.push(item['Tahun']);
     kepadatanPenduduk.push(item['Kepadatan Penduduk']);
+    sumber.push(item['Sumber']);
+    interpretasi.push(item['Interpretasi']);
   }
+
+  
   
   var mode = 'index'
   var intersect = true
