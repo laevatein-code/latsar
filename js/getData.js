@@ -16,10 +16,28 @@ fetch(`${url}`)
     let tahun = [];
     let penduduk = [];
     let sumber = [];
+    let interpretasi = [];
     for(const item of data){
       tahun.push(item['Tahun']);
       penduduk.push(item['Jumlah Penduduk']);
-      sumber.push(item['Sumber'])
+      sumber.push(item['Sumber']);
+      interpretasi.push(item['Interpretasi']);
+    }
+
+    if(sumber[0] != null){
+      const sumberdata = document.getElementById("sumberPenduduk");
+      var sumberPenduduk = document.createElement("p");
+      sumberPenduduk.setAttribute("class","card-subtitle text-start");
+      sumberPenduduk.innerText = "Sumber: "+sumber[0];
+      sumberdata.appendChild(sumberPenduduk);
+    }
+
+    if(interpretasi[0] != null){
+      const inter = document.getElementById("interPenduduk");
+      var interPenduduk = document.createElement("p");
+      interPenduduk.setAttribute("class","card-text text-start text-muted");
+      interPenduduk.innerText = interpretasi[0];
+      inter.appendChild(interPenduduk);
     }
     
     const table = document.getElementById("tablePenduduk");
@@ -128,6 +146,11 @@ fetch(`${gr}`)
 .then(({data})=> {
   let tahun = [];
   let gR = [];
+  let interGr = [];
+  let interUhh = [];
+  let interHls = [];
+  let interIpm = [];
+  let sumber = [];
   let uhh = [];
   let hls = [];
   let ipm = [];
@@ -137,7 +160,72 @@ fetch(`${gr}`)
     uhh.push(item['UHH']);
     hls.push(item['HLS']);
     ipm.push(item['IPM']);
+    interGr.push(item['Interpretasi GR']);
+    interUhh.push(item['Interpretasi UHH']);
+    interHls.push(item['Interpretasi HLS']);
+    interIpm.push(item['Interpretasi IPM']);
+    sumber.push(item['Sumber']);
   }
+
+  if(sumber[0] != null){
+    const sumberdata = document.getElementById("sumberGr");
+    var sumberPenduduk = document.createElement("p");
+    sumberPenduduk.setAttribute("class","card-subtitle text-start");
+    sumberPenduduk.innerText = "Sumber: "+sumber[0];
+    sumberdata.appendChild(sumberPenduduk);
+
+    var sumberPenduduk2 = document.createElement("p");
+    sumberPenduduk2.setAttribute("class","card-subtitle text-start");
+    sumberPenduduk2.innerText = "Sumber: "+sumber[0];
+
+    var sumberPenduduk3 = document.createElement("p");
+    sumberPenduduk3.setAttribute("class","card-subtitle text-start");
+    sumberPenduduk3.innerText = "Sumber: "+sumber[0];
+
+    var sumberPenduduk4 = document.createElement("p");
+    sumberPenduduk4.setAttribute("class","card-subtitle text-start");
+    sumberPenduduk4.innerText = "Sumber: "+sumber[0];
+
+    const sumberdata2 = document.getElementById("sumberUhh");
+    const sumberdata3 = document.getElementById("sumberHls");
+    const sumberdata4 = document.getElementById("sumberIpm");
+
+    sumberdata2.appendChild(sumberPenduduk2);
+    sumberdata3.appendChild(sumberPenduduk3);
+    sumberdata4.appendChild(sumberPenduduk4);
+  }
+
+  // if(interGr[0] != null){
+  //   const interRatio = document.getElementById("interGr");
+  //   var interGini = document.createElement("p");
+  //   interGini.setAttribute("class","card-text text-start text-muted");
+  //   interGini.innerText = interGr[0];
+  //   interRatio.appendChild(interGini);
+  // }
+
+  // if(interpretasi[0] != null){
+  //   const inter = document.getElementById("interPenduduk");
+  //   var interPenduduk = document.createElement("p");
+  //   interPenduduk.setAttribute("class","card-text text-start text-muted");
+  //   interPenduduk.innerText = interpretasi[0];
+  //   inter.appendChild(interPenduduk);
+  // }
+
+  // if(interpretasi[0] != null){
+  //   const inter = document.getElementById("interPenduduk");
+  //   var interPenduduk = document.createElement("p");
+  //   interPenduduk.setAttribute("class","card-text text-start text-muted");
+  //   interPenduduk.innerText = interpretasi[0];
+  //   inter.appendChild(interPenduduk);
+  // }
+
+  // if(interpretasi[0] != null){
+  //   const inter = document.getElementById("interPenduduk");
+  //   var interPenduduk = document.createElement("p");
+  //   interPenduduk.setAttribute("class","card-text text-start text-muted");
+  //   interPenduduk.innerText = interpretasi[0];
+  //   inter.appendChild(interPenduduk);
+  // }
 
     const table = document.getElementById("tableGR");
     const thead = document.createElement("thead");
@@ -498,6 +586,14 @@ fetch(`${url_kepadatan_penduduk}`)
     interpretasi.push(item['Interpretasi']);
   }
 
+  if(sumber[0] != null){
+    const sumberdata = document.getElementById("sumberPadat");
+    var sumberPenduduk = document.createElement("p");
+    sumberPenduduk.setAttribute("class","card-subtitle text-start");
+    sumberPenduduk.innerText = "Sumber: "+sumber[0];
+    sumberdata.appendChild(sumberPenduduk);
+  }
+
   const table = document.getElementById("tablePadat");
   const thead = document.createElement("thead");
   const tbody = document.createElement("tbody");
@@ -606,10 +702,27 @@ fetch(`${url_pdrb}`)
     let tahun = [];
     let pdrbB = [];
     let pdrbK = [];
+    let sumber = [];
     for(const item of data){
       tahun.push(item['Tahun']);
       pdrbB.push(item['PDRB ADHB']);
       pdrbK.push(item['PDRB ADHK']);
+      sumber.push(item['Sumber']);
+    }
+
+    if(sumber[0] != null){
+      const sumberdata = document.getElementById("sumberAdhb");
+      const sumberdata2 = document.getElementById("sumberAdhk");
+      var sumberPenduduk = document.createElement("p");
+      sumberPenduduk.setAttribute("class","card-subtitle text-start");
+      sumberPenduduk.innerText = "Sumber: "+sumber[0];
+
+      var sumberPenduduk2 = document.createElement("p");
+      sumberPenduduk2.setAttribute("class","card-subtitle text-start");
+      sumberPenduduk2.innerText = "Sumber: "+sumber[0];
+
+      sumberdata.appendChild(sumberPenduduk);
+      sumberdata2.appendChild(sumberPenduduk2);
     }
     
     const table = document.getElementById("tableADHB");
@@ -855,12 +968,24 @@ fetch(`${url_naker}`)
   let tahun = [];
   let tpak = [];
   let tpt = [];
+  let sumber = [];
+  let interpretasi = [];
   for(const item of data){
     tahun.push(item['Tahun']);
     tpak.push(item['TPAK']);
     tpt.push(item["TPT"]);
+    sumber.push(item["Sumber"]);
+    interpretasi.push(item["Interpretasi"])
   }
   
+  if(sumber[0] != null){
+    const sumberdata = document.getElementById("sumberTP");
+    var sumberPenduduk = document.createElement("p");
+    sumberPenduduk.setAttribute("class","card-subtitle text-start");
+    sumberPenduduk.innerText = "Sumber: "+sumber[0];
+    sumberdata.appendChild(sumberPenduduk);
+  }
+
     const table = document.getElementById("tableTP");
     const thead = document.createElement("thead");
     const tbody = document.createElement("tbody");
