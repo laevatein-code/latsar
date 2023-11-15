@@ -22,6 +22,45 @@ fetch(`${url}`)
       sumber.push(item['Sumber'])
     }
     
+    const table = document.getElementById("tablePenduduk");
+    const thead = document.createElement("thead");
+    const tbody = document.createElement("tbody");
+    tbody.setAttribute("class","text-start");
+    const tr = document.createElement("tr");
+    const thTahun = document.createElement("th");
+    thTahun.setAttribute("class","text-center");
+    const thPenduduk = document.createElement("th");
+    thPenduduk.setAttribute("class","text-center");
+    thTahun.innerText = "Tahun";
+    thPenduduk.innerText = "Jumlah Penduduk (Jiwa)";
+    tr.appendChild(thTahun);
+    tr.appendChild(thPenduduk);
+    thead.appendChild(tr);
+    table.appendChild(thead);
+
+    for(var i=0;i<tahun.length;i++){
+      var tdTahun = document.createElement("td");
+      var tdPenduduk = document.createElement("td");
+      var trBody = document.createElement("tr");
+      tdTahun.innerText = tahun[i];
+      tdTahun.setAttribute("class","text-center");
+      tdPenduduk.innerText = penduduk[i];
+      tdPenduduk.setAttribute("class","text-center");
+      trBody.appendChild(tdTahun);
+      trBody.appendChild(tdPenduduk);
+      tbody.appendChild(trBody);
+      table.appendChild(tbody);
+    }
+
+    $(document).ready(function() {
+      $('#tablePenduduk').DataTable( {
+          dom: 'Bfrtip',
+          buttons: [
+              'copy', 'csv', 'excel', 'pdf', 'print'
+          ]
+      } );
+    } );
+
     var mode = 'index'
     var intersect = true
 
@@ -99,7 +138,163 @@ fetch(`${gr}`)
     hls.push(item['HLS']);
     ipm.push(item['IPM']);
   }
-  
+
+    const table = document.getElementById("tableGR");
+    const thead = document.createElement("thead");
+    const tbody = document.createElement("tbody");
+    tbody.setAttribute("class","text-start");
+    const tr = document.createElement("tr");
+    const thTahun = document.createElement("th");
+    thTahun.setAttribute("class","text-center");
+    const thPenduduk = document.createElement("th");
+    thPenduduk.setAttribute("class","text-center");
+    thTahun.innerText = "Tahun";
+    thPenduduk.innerText = "Gini Ratio";
+    tr.appendChild(thTahun);
+    tr.appendChild(thPenduduk);
+    thead.appendChild(tr);
+    table.appendChild(thead);
+
+    for(var i=0;i<tahun.length;i++){
+      var tdTahun = document.createElement("td");
+      var tdPenduduk = document.createElement("td");
+      var trBody = document.createElement("tr");
+      tdTahun.innerText = tahun[i];
+      tdTahun.setAttribute("class","text-center");
+      tdPenduduk.innerText = gR[i];
+      tdPenduduk.setAttribute("class","text-center");
+      trBody.appendChild(tdTahun);
+      trBody.appendChild(tdPenduduk);
+      tbody.appendChild(trBody);
+      table.appendChild(tbody);
+    }
+
+    $(document).ready(function() {
+      $('#tableGR').DataTable( {
+          dom: 'Bfrtip',
+          buttons: [
+              'copy', 'csv', 'excel', 'pdf', 'print'
+          ]
+      } );
+    } );
+
+    const table2 = document.getElementById("tableUHH");
+    const thead2 = document.createElement("thead");
+    const tbody2 = document.createElement("tbody");
+    tbody2.setAttribute("class","text-start");
+    const tr2 = document.createElement("tr");
+    const thTahun2 = document.createElement("th");
+    thTahun2.setAttribute("class","text-center");
+    const thPenduduk2 = document.createElement("th");
+    thPenduduk2.setAttribute("class","text-center");
+    thTahun2.innerText = "Tahun";
+    thPenduduk2.innerText = "Usia Harapan Hidup (Tahun)";
+    tr2.appendChild(thTahun2);
+    tr2.appendChild(thPenduduk2);
+    thead2.appendChild(tr2);
+    table2.appendChild(thead2);
+
+    for(var i=0;i<tahun.length;i++){
+      var tdTahun2 = document.createElement("td");
+      var tdPenduduk2 = document.createElement("td");
+      var trBody2 = document.createElement("tr");
+      tdTahun2.innerText = tahun[i];
+      tdTahun2.setAttribute("class","text-center");
+      tdPenduduk2.innerText = uhh[i];
+      tdPenduduk2.setAttribute("class","text-center");
+      trBody2.appendChild(tdTahun2);
+      trBody2.appendChild(tdPenduduk2);
+      tbody2.appendChild(trBody2);
+      table2.appendChild(tbody2);
+    }
+
+    $(document).ready(function() {
+      $('#tableUHH').DataTable( {
+          dom: 'Bfrtip',
+          buttons: [
+              'copy', 'csv', 'excel', 'pdf', 'print'
+          ]
+      } );
+    } );
+
+    const table3 = document.getElementById("tableHLS");
+    const thead3 = document.createElement("thead");
+    const tbody3 = document.createElement("tbody");
+    tbody3.setAttribute("class","text-start");
+    const tr3 = document.createElement("tr");
+    const thTahun3 = document.createElement("th");
+    thTahun3.setAttribute("class","text-center");
+    const thPenduduk3 = document.createElement("th");
+    thPenduduk3.setAttribute("class","text-center");
+    thTahun3.innerText = "Tahun";
+    thPenduduk3.innerText = "Harapan Lama Sekolah (Tahun)";
+    tr3.appendChild(thTahun3);
+    tr3.appendChild(thPenduduk3);
+    thead3.appendChild(tr3);
+    table3.appendChild(thead3);
+
+    for(var i=0;i<tahun.length;i++){
+      var tdTahun3 = document.createElement("td");
+      var tdPenduduk3 = document.createElement("td");
+      var trBody3 = document.createElement("tr");
+      tdTahun3.innerText = tahun[i];
+      tdTahun3.setAttribute("class","text-center");
+      tdPenduduk3.innerText = hls[i];
+      tdPenduduk3.setAttribute("class","text-center");
+      trBody3.appendChild(tdTahun3);
+      trBody3.appendChild(tdPenduduk3);
+      tbody3.appendChild(trBody3);
+      table3.appendChild(tbody3);
+    }
+
+    $(document).ready(function() {
+      $('#tableHLS').DataTable( {
+          dom: 'Bfrtip',
+          buttons: [
+              'copy', 'csv', 'excel', 'pdf', 'print'
+          ]
+      } );
+    } );
+
+    const table4 = document.getElementById("tableIPM");
+    const thead4 = document.createElement("thead");
+    const tbody4 = document.createElement("tbody");
+    tbody4.setAttribute("class","text-start");
+    const tr4 = document.createElement("tr");
+    const thTahun4 = document.createElement("th");
+    thTahun4.setAttribute("class","text-center");
+    const thPenduduk4 = document.createElement("th");
+    thPenduduk4.setAttribute("class","text-center");
+    thTahun4.innerText = "Tahun";
+    thPenduduk4.innerText = "Indeks Pembangunan Manusia";
+    tr4.appendChild(thTahun4);
+    tr4.appendChild(thPenduduk4);
+    thead4.appendChild(tr4);
+    table4.appendChild(thead4);
+
+    for(var i=0;i<tahun.length;i++){
+      var tdTahun4 = document.createElement("td");
+      var tdPenduduk4 = document.createElement("td");
+      var trBody4 = document.createElement("tr");
+      tdTahun4.innerText = tahun[i];
+      tdTahun4.setAttribute("class","text-center");
+      tdPenduduk4.innerText = ipm[i];
+      tdPenduduk4.setAttribute("class","text-center");
+      trBody4.appendChild(tdTahun4);
+      trBody4.appendChild(tdPenduduk4);
+      tbody4.appendChild(trBody4);
+      table4.appendChild(tbody4);
+    }
+
+    $(document).ready(function() {
+      $('#tableIPM').DataTable( {
+          dom: 'Bfrtip',
+          buttons: [
+              'copy', 'csv', 'excel', 'pdf', 'print'
+          ]
+      } );
+    } );
+
   var mode = 'index'
   var intersect = true
 
@@ -303,7 +498,44 @@ fetch(`${url_kepadatan_penduduk}`)
     interpretasi.push(item['Interpretasi']);
   }
 
-  
+  const table = document.getElementById("tablePadat");
+  const thead = document.createElement("thead");
+  const tbody = document.createElement("tbody");
+  tbody.setAttribute("class","text-start");
+  const tr = document.createElement("tr");
+  const thTahun = document.createElement("th");
+  thTahun.setAttribute("class","text-center");
+  const thPenduduk = document.createElement("th");
+  thPenduduk.setAttribute("class","text-center");
+  thTahun.innerText = "Tahun";
+  thPenduduk.innerText = "Kepadatan Penduduk (jiwa/kilometer persegi)";
+  tr.appendChild(thTahun);
+  tr.appendChild(thPenduduk);
+  thead.appendChild(tr);
+  table.appendChild(thead);
+
+  for(var i=0;i<tahun.length;i++){
+    var tdTahun = document.createElement("td");
+    var tdPenduduk = document.createElement("td");
+    var trBody = document.createElement("tr");
+    tdTahun.innerText = tahun[i];
+    tdTahun.setAttribute("class","text-center");
+    tdPenduduk.innerText = kepadatanPenduduk[i];
+    tdPenduduk.setAttribute("class","text-center");
+    trBody.appendChild(tdTahun);
+    trBody.appendChild(tdPenduduk);
+    tbody.appendChild(trBody);
+    table.appendChild(tbody);
+  }
+
+  $(document).ready(function() {
+    $('#tablePadat').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+  } );
   
   var mode = 'index'
   var intersect = true
@@ -380,6 +612,83 @@ fetch(`${url_pdrb}`)
       pdrbK.push(item['PDRB ADHK']);
     }
     
+    const table = document.getElementById("tableADHB");
+    const thead = document.createElement("thead");
+    const tbody = document.createElement("tbody");
+    tbody.setAttribute("class","text-start");
+    const tr = document.createElement("tr");
+    const thTahun = document.createElement("th");
+    thTahun.setAttribute("class","text-center");
+    const thPenduduk = document.createElement("th");
+    thPenduduk.setAttribute("class","text-center");
+    thTahun.innerText = "Tahun";
+    thPenduduk.innerText = "PDRB ADHB (Juta Rupiah)";
+    tr.appendChild(thTahun);
+    tr.appendChild(thPenduduk);
+    thead.appendChild(tr);
+    table.appendChild(thead);
+
+    for(var i=0;i<tahun.length;i++){
+      var tdTahun = document.createElement("td");
+      var tdPenduduk = document.createElement("td");
+      var trBody = document.createElement("tr");
+      tdTahun.innerText = tahun[i];
+      tdTahun.setAttribute("class","text-center");
+      tdPenduduk.innerText = pdrbB[i];
+      tdPenduduk.setAttribute("class","text-center");
+      trBody.appendChild(tdTahun);
+      trBody.appendChild(tdPenduduk);
+      tbody.appendChild(trBody);
+      table.appendChild(tbody);
+    }
+
+    const table2 = document.getElementById("tableADHK");
+    const thead2 = document.createElement("thead");
+    const tbody2 = document.createElement("tbody");
+    tbody2.setAttribute("class","text-start");
+    const tr2 = document.createElement("tr");
+    const thTahun2 = document.createElement("th");
+    thTahun2.setAttribute("class","text-center");
+    const thPenduduk2 = document.createElement("th");
+    thPenduduk2.setAttribute("class","text-center");
+    thTahun2.innerText = "Tahun";
+    thPenduduk2.innerText = "PDRB ADHB (Juta Rupiah)";
+    tr2.appendChild(thTahun2);
+    tr2.appendChild(thPenduduk2);
+    thead2.appendChild(tr2);
+    table2.appendChild(thead2);
+
+    for(var i=0;i<tahun.length;i++){
+      var tdTahun2 = document.createElement("td");
+      var tdPenduduk2 = document.createElement("td");
+      var trBody2 = document.createElement("tr");
+      tdTahun2.innerText = tahun[i];
+      tdTahun2.setAttribute("class","text-center");
+      tdPenduduk2.innerText = pdrbK[i];
+      tdPenduduk2.setAttribute("class","text-center");
+      trBody2.appendChild(tdTahun2);
+      trBody2.appendChild(tdPenduduk2);
+      tbody2.appendChild(trBody2);
+      table2.appendChild(tbody2);
+    }
+
+    $(document).ready(function() {
+      $('#tableADHB').DataTable( {
+          dom: 'Bfrtip',
+          buttons: [
+              'copy', 'csv', 'excel', 'pdf', 'print'
+          ]
+      } );
+    } );
+    $(document).ready(function() {
+      $('#tableADHK').DataTable( {
+          dom: 'Bfrtip',
+          buttons: [
+              'copy', 'csv', 'excel', 'pdf', 'print'
+          ]
+      } );
+    } );
+
     var mode = 'index'
     var intersect = true
 
@@ -552,6 +861,53 @@ fetch(`${url_naker}`)
     tpt.push(item["TPT"]);
   }
   
+    const table = document.getElementById("tableTP");
+    const thead = document.createElement("thead");
+    const tbody = document.createElement("tbody");
+    tbody.setAttribute("class","text-start");
+    const tr = document.createElement("tr");
+    const thTahun = document.createElement("th");
+    thTahun.setAttribute("class","text-center");
+    const thPenduduk = document.createElement("th");
+    thPenduduk.setAttribute("class","text-center");
+    const thTPT = document.createElement("th");
+    thTPT.setAttribute("class","text-center");
+    thTahun.innerText = "Tahun";
+    thPenduduk.innerText = "TPAK";
+    thTPT.innerText = "TPT";
+    tr.appendChild(thTahun);
+    tr.appendChild(thPenduduk);
+    tr.appendChild(thTPT);
+    thead.appendChild(tr);
+    table.appendChild(thead);
+
+    for(var i=0;i<tahun.length;i++){
+      var tdTahun = document.createElement("td");
+      var tdPenduduk = document.createElement("td");
+      var tdTPT = document.createElement("td");
+      var trBody = document.createElement("tr");
+      tdTahun.innerText = tahun[i];
+      tdTahun.setAttribute("class","text-center");
+      tdPenduduk.innerText = tpak[i];
+      tdPenduduk.setAttribute("class","text-center");
+      tdTPT.innerText = tpt[i];
+      tdTPT.setAttribute("class","text-center");
+      trBody.appendChild(tdTahun);
+      trBody.appendChild(tdPenduduk);
+      trBody.appendChild(tdTPT);
+      tbody.appendChild(trBody);
+      table.appendChild(tbody);
+    }
+
+    $(document).ready(function() {
+      $('#tableTP').DataTable( {
+          dom: 'Bfrtip',
+          buttons: [
+              'copy', 'csv', 'excel', 'pdf', 'print'
+          ]
+      } );
+    } );
+
   var mode = 'index'
   var intersect = true
 

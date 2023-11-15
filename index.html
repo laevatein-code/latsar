@@ -8,6 +8,7 @@
     <link href="css/dashboard.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css" rel="stylesheet">
   </head>
   <body onload="myFunction()">
     <nav class="navbar navbar-expand-lg sticky-top p-2 shadow navbar-dark bg-dark">
@@ -134,11 +135,30 @@
               <div class="col">
                 <div class="card mb-3">
                   <div class="card-header" style="background-color: #fff;">
-                    <p class="card-title">Kepadatan Penduduk Kabupaten Teluk Wondama</p>
+                    <div class="row align-items-center">
+                      <div class="col-8 text-start align-items-center">
+                        <p class="card-title">Kepadatan Penduduk Kabupaten Teluk Wondama</p>
+                      </div>
+                      <div class="col-4">
+                        <ul class="nav nav-pills mb-3 float-end" id="pills-tab" role="tablist">
+                          <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Grafik</button>
+                          </li>
+                          <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Table</button>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                   <div class="card-body">
-                    <div class="tab-content p-0">
-                      <canvas id="chartKepadatanPenduduk" style="height: 300px;"></canvas>
+                    <div class="tab-content p-0" id="pills-tabContent">
+                      <div class="tab-pane fade show active p-0 m-0" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                        <canvas id="chartKepadatanPenduduk" style="height: 300px;"></canvas>
+                      </div>
+                      <div class="tab-pane fade p-0 m-0" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        <table id="tablePadat" class="display nowrap"></table>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -146,11 +166,30 @@
               <div class="col">
                 <div class="card mb-3">
                   <div class="card-header" style="background-color: #fff;">
-                    <p class="card-title">Jumlah Penduduk Kabupaten Teluk Wondama</p>
+                    <div class="row align-items-center">
+                      <div class="col-8 text-start align-items-center">
+                        <p class="card-title">Jumlah Penduduk Kabupaten Teluk Wondama</p>
+                      </div>
+                      <div class="col-4">
+                        <ul class="nav nav-pills mb-3 float-end" id="pills-tab" role="tablist">
+                          <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home2" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Grafik</button>
+                          </li>
+                          <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile2" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Table</button>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                   <div class="card-body">
-                    <div class="tab-content p-0">
-                      <canvas id="myChart" style="height: 300px;"></canvas>
+                    <div class="tab-content p-0" id="pills-tabContent">
+                      <div class="tab-pane fade show active p-0 m-0" id="pills-home2" role="tabpanel" aria-labelledby="pills-home-tab">
+                        <canvas id="myChart" style="height: 300px;"></canvas>
+                      </div>
+                      <div class="tab-pane fade p-0 m-0" id="pills-profile2" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        <table id="tablePenduduk" class="display"></table>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -194,11 +233,30 @@
               <div class="col">
                 <div class="card mb-3">
                   <div class="card-header" style="background-color: #fff;">
-                    <p class="card-title">Gini Ratio Kabupaten Teluk Wondama</p>
+                    <div class="row align-items-center">
+                      <div class="col-8 text-start align-items-center">
+                        <p class="card-title">Gini Ratio Kabupaten Teluk Wondama</p>
+                      </div>
+                      <div class="col-4">
+                        <ul class="nav nav-pills mb-3 float-end" id="pills-tab" role="tablist">
+                          <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home3" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Grafik</button>
+                          </li>
+                          <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile3" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Table</button>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                   <div class="card-body">
-                    <div class="tab-content p-0">
-                      <canvas id="chartGr" style="height: 300px;"></canvas>
+                    <div class="tab-content p-0" id="pills-tabContent">
+                      <div class="tab-pane fade show active p-0 m-0" id="pills-home3" role="tabpanel" aria-labelledby="pills-home-tab">
+                        <canvas id="chartGr" style="height: 300px;"></canvas>
+                      </div>
+                      <div class="tab-pane fade p-0 m-0" id="pills-profile3" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        <table id="tableGR" class="display nowrap"></table>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -206,11 +264,30 @@
               <div class="col">
                 <div class="card mb-3">
                   <div class="card-header" style="background-color: #fff;">
-                    <p class="card-title">Usia Harapan Hidup Kabupaten Teluk Wondama</p>
+                    <div class="row align-items-center">
+                      <div class="col-8 text-start align-items-center">
+                        <p class="card-title">Usia Harapan Hidup Kabupaten Teluk Wondama</p>
+                      </div>
+                      <div class="col-4">
+                        <ul class="nav nav-pills mb-3 float-end" id="pills-tab" role="tablist">
+                          <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home4" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Grafik</button>
+                          </li>
+                          <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile4" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Table</button>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                   <div class="card-body">
-                    <div class="tab-content p-0">
-                      <canvas id="chartUHH" style="height: 300px;"></canvas>
+                    <div class="tab-content p-0" id="pills-tabContent">
+                      <div class="tab-pane fade show active p-0 m-0" id="pills-home4" role="tabpanel" aria-labelledby="pills-home-tab">
+                        <canvas id="chartUHH" style="height: 300px;"></canvas>
+                      </div>
+                      <div class="tab-pane fade p-0 m-0" id="pills-profile4" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        <table id="tableUHH" class="display nowrap"></table>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -220,11 +297,30 @@
               <div class="col">
                 <div class="card mb-3">
                   <div class="card-header" style="background-color: #fff;">
-                    <p class="card-title">Harapan Lama Sekolah Kabupaten Teluk Wondama</p>
+                    <div class="row align-items-center">
+                      <div class="col-8 text-start align-items-center">
+                        <p class="card-title">Harapan Lama Sekolah Kabupaten Teluk Wondama</p>
+                      </div>
+                      <div class="col-4">
+                        <ul class="nav nav-pills mb-3 float-end" id="pills-tab" role="tablist">
+                          <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home5" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Grafik</button>
+                          </li>
+                          <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile5" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Table</button>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                   <div class="card-body">
-                    <div class="tab-content p-0">
-                      <canvas id="chartHLS" style="height: 300px;"></canvas>
+                    <div class="tab-content p-0" id="pills-tabContent">
+                      <div class="tab-pane fade show active p-0 m-0" id="pills-home5" role="tabpanel" aria-labelledby="pills-home-tab">
+                        <canvas id="chartHLS" style="height: 300px;"></canvas>
+                      </div>
+                      <div class="tab-pane fade p-0 m-0" id="pills-profile5" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        <table id="tableHLS" class="display nowrap"></table>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -232,11 +328,30 @@
               <div class="col">
                 <div class="card mb-3">
                   <div class="card-header" style="background-color: #fff;">
-                    <p class="card-title">Indeks Pembangunan Manusia Kabupaten Teluk Wondama</p>
+                    <div class="row align-items-center">
+                      <div class="col-8 text-start align-items-center">
+                        <p class="card-title">Indeks Pembangunan Manusia Kabupaten Teluk Wondama</p>
+                      </div>
+                      <div class="col-4">
+                        <ul class="nav nav-pills mb-3 float-end" id="pills-tab" role="tablist">
+                          <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home6" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Grafik</button>
+                          </li>
+                          <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile6" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Table</button>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                   <div class="card-body">
-                    <div class="tab-content p-0">
-                      <canvas id="chartIPM" style="height: 300px;"></canvas>
+                    <div class="tab-content p-0" id="pills-tabContent">
+                      <div class="tab-pane fade show active p-0 m-0" id="pills-home6" role="tabpanel" aria-labelledby="pills-home-tab">
+                        <canvas id="chartIPM" style="height: 300px;"></canvas>
+                      </div>
+                      <div class="tab-pane fade p-0 m-0" id="pills-profile6" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        <table id="tableIPM" class="display nowrap"></table>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -246,11 +361,30 @@
               <div class="col">
                 <div class="card mb-3">
                   <div class="card-header" style="background-color: #fff;">
-                    <p class="card-title">Tingkat Pengangguran Terbuka dan Tingkat Partisipasi Angkatan Kerja (Persen)</p>
+                    <div class="row align-items-center">
+                      <div class="col-8 text-start align-items-center">
+                        <p class="card-title">Tingkat Pengangguran Terbuka dan Tingkat Partisipasi Angkatan Kerja (Persen)</p>
+                      </div>
+                      <div class="col-4">
+                        <ul class="nav nav-pills mb-3 float-end" id="pills-tab" role="tablist">
+                          <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home7" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Grafik</button>
+                          </li>
+                          <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile7" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Table</button>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                   <div class="card-body">
-                    <div class="tab-content p-0">
-                      <canvas id="chartNaker" style="height: 300px;"></canvas>
+                    <div class="tab-content p-0" id="pills-tabContent">
+                      <div class="tab-pane fade show active p-0 m-0" id="pills-home7" role="tabpanel" aria-labelledby="pills-home-tab">
+                        <canvas id="chartNaker" style="height: 300px;"></canvas>
+                      </div>
+                      <div class="tab-pane fade p-0 m-0" id="pills-profile7" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        <table id="tableTP" class="display nowrap"></table>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -263,11 +397,30 @@
                 <div class="col">
                   <div class="card">
                     <div class="card-header" style="background-color: #fff;">
-                      <p class="card-title">PDRB ADHB</p>
+                      <div class="row align-items-center">
+                        <div class="col-8 text-start align-items-center">
+                          <p class="card-title">PDRB ADHB</p>
+                        </div>
+                        <div class="col-4">
+                          <ul class="nav nav-pills mb-3 float-end" id="pills-tab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home8" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Grafik</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile8" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Table</button>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
                     </div>
                     <div class="card-body">
-                      <div class="tab-content p-0">
-                        <canvas id="chartPdrbB" style="height: 300px;"></canvas>
+                      <div class="tab-content p-0" id="pills-tabContent">
+                        <div class="tab-pane fade show active p-0 m-0" id="pills-home8" role="tabpanel" aria-labelledby="pills-home-tab">
+                          <canvas id="chartPdrbB" style="height: 300px;"></canvas>
+                        </div>
+                        <div class="tab-pane fade p-0 m-0" id="pills-profile8" role="tabpanel" aria-labelledby="pills-profile-tab">
+                          <table id="tableADHB" class="display nowrap"></table>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -277,11 +430,30 @@
                 <div class="col">
                   <div class="card">
                     <div class="card-header" style="background-color: #fff;">
-                      <p class="card-title">PDRB ADHK</p>
+                      <div class="row align-items-center">
+                        <div class="col-8 text-start align-items-center">
+                          <p class="card-title">PDRB ADHK</p>
+                        </div>
+                        <div class="col-4">
+                          <ul class="nav nav-pills mb-3 float-end" id="pills-tab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home9" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Grafik</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile9" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Table</button>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
                     </div>
                     <div class="card-body">
-                      <div class="tab-content p-0">
-                        <canvas id="chartPdrbK" style="height: 300px;"></canvas>
+                      <div class="tab-content p-0" id="pills-tabContent">
+                        <div class="tab-pane fade show active p-0 m-0" id="pills-home9" role="tabpanel" aria-labelledby="pills-home-tab">
+                          <canvas id="chartPdrbK" style="height: 300px;"></canvas>
+                        </div>
+                        <div class="tab-pane fade p-0 m-0" id="pills-profile9" role="tabpanel" aria-labelledby="pills-profile-tab">
+                          <table id="tableADHK" class="display nowrap"></table>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -319,6 +491,9 @@
     <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>        
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
     <script src="js/getData.js"></script>
     <script src="js/getData2.js"></script>
     <script src="js/animate.js"></script>
