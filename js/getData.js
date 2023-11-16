@@ -17,11 +17,13 @@ fetch(`${url}`)
     let penduduk = [];
     let sumber = [];
     let interpretasi = [];
+    let ket = [];
     for(const item of data){
       tahun.push(item['Tahun']);
       penduduk.push(item['Jumlah Penduduk']);
       sumber.push(item['Sumber']);
-      interpretasi.push(item['Interpretasi']);
+      interpretasi.push(item['Interpretasi Jumlah Penduduk']);
+      ket.push(item['Keterangan']);
     }
 
     if(sumber[0] != null){
@@ -35,11 +37,19 @@ fetch(`${url}`)
     if(interpretasi[0] != null){
       const inter = document.getElementById("interPenduduk");
       var interPenduduk = document.createElement("p");
-      interPenduduk.setAttribute("class","card-text text-start text-muted");
+      interPenduduk.setAttribute("class","card-text text-start text-muted mt-2 mb-2");
       interPenduduk.innerText = interpretasi[0];
       inter.appendChild(interPenduduk);
     }
     
+    if(ket[0] != null){
+      const keterang = document.getElementById("ketPenduduk");
+      var ketPenduduk = document.createElement("p");
+      ketPenduduk.setAttribute("class","card-text text-start text-muted mt-2 mb-2");
+      ketPenduduk.innerText = "Catatan: "+ket[0];
+      keterang.appendChild(ketPenduduk);
+    }
+
     const table = document.getElementById("tablePenduduk");
     const thead = document.createElement("thead");
     const tbody = document.createElement("tbody");
@@ -195,37 +205,29 @@ fetch(`${gr}`)
     sumberdata4.appendChild(sumberPenduduk4);
   }
 
-  // if(interGr[0] != null){
-  //   const interRatio = document.getElementById("interGr");
-  //   var interGini = document.createElement("p");
-  //   interGini.setAttribute("class","card-text text-start text-muted");
-  //   interGini.innerText = interGr[0];
-  //   interRatio.appendChild(interGini);
-  // }
+  function makeInter(interpre, key){
+    const inter = document.getElementById(key);
+    var interPenduduk = document.createElement("p");
+    interPenduduk.setAttribute("class","card-text text-start text-muted mt-2 mb-2");
+    interPenduduk.innerText = interpre[0];
+    inter.appendChild(interPenduduk);
+  }
 
-  // if(interpretasi[0] != null){
-  //   const inter = document.getElementById("interPenduduk");
-  //   var interPenduduk = document.createElement("p");
-  //   interPenduduk.setAttribute("class","card-text text-start text-muted");
-  //   interPenduduk.innerText = interpretasi[0];
-  //   inter.appendChild(interPenduduk);
-  // }
+  if(interGr[0] != null){
+    makeInter(interGr, "interGr");
+  }
 
-  // if(interpretasi[0] != null){
-  //   const inter = document.getElementById("interPenduduk");
-  //   var interPenduduk = document.createElement("p");
-  //   interPenduduk.setAttribute("class","card-text text-start text-muted");
-  //   interPenduduk.innerText = interpretasi[0];
-  //   inter.appendChild(interPenduduk);
-  // }
+  if(interUhh[0] != null){
+    makeInter(interUhh, "interUhh");
+  }
 
-  // if(interpretasi[0] != null){
-  //   const inter = document.getElementById("interPenduduk");
-  //   var interPenduduk = document.createElement("p");
-  //   interPenduduk.setAttribute("class","card-text text-start text-muted");
-  //   interPenduduk.innerText = interpretasi[0];
-  //   inter.appendChild(interPenduduk);
-  // }
+  if(interHls[0] != null){
+    makeInter(interHls, "interHls");
+  }
+
+  if(interIpm[0] != null){
+    makeInter(interIpm, "interIpm");
+  }
 
     const table = document.getElementById("tableGR");
     const thead = document.createElement("thead");
@@ -419,11 +421,19 @@ fetch(`${gr}`)
       },
       scales: {
         x: {
+          title: {
+            display: true,
+            text: 'Tahun'
+          },
           grid: {
             display: false
           }
         },
         y: {
+          title: {
+            display: true,
+            text: 'Gini Ratio'
+          },
           grid: {
             display: false
           }
@@ -465,11 +475,19 @@ fetch(`${gr}`)
       },
       scales: {
         x: {
+          title: {
+            display: true,
+            text: 'Tahun'
+          },
           grid: {
             display: false
           }
         },
         y: {
+          title: {
+            display: true,
+            text: 'UHH (Tahun)'
+          },
           grid: {
             display: true
           }
@@ -511,11 +529,19 @@ fetch(`${gr}`)
       },
       scales: {
         x: {
+          title: {
+            display: true,
+            text: 'Tahun'
+          },
           grid: {
             display: false
           }
         },
         y: {
+          title: {
+            display: true,
+            text: 'HLS (Tahun)'
+          },
           grid: {
             display: true
           }
@@ -557,11 +583,19 @@ fetch(`${gr}`)
       },
       scales: {
         x: {
+          title: {
+            display: true,
+            text: 'Tahun'
+          },
           grid: {
             display: false
           }
         },
         y: {
+          title: {
+            display: true,
+            text: 'IPM'
+          },
           grid: {
             display: false
           }
@@ -592,6 +626,18 @@ fetch(`${url_kepadatan_penduduk}`)
     sumberPenduduk.setAttribute("class","card-subtitle text-start");
     sumberPenduduk.innerText = "Sumber: "+sumber[0];
     sumberdata.appendChild(sumberPenduduk);
+  }
+
+  function makeInter(interpre, key){
+    const inter = document.getElementById(key);
+    var interPenduduk = document.createElement("p");
+    interPenduduk.setAttribute("class","card-text text-start text-muted mt-2 mb-2");
+    interPenduduk.innerText = interpre[0];
+    inter.appendChild(interPenduduk);
+  }
+
+  if(interpretasi[0] != null){
+    makeInter(interpretasi, "interPadat");
   }
 
   const table = document.getElementById("tablePadat");
@@ -703,11 +749,15 @@ fetch(`${url_pdrb}`)
     let pdrbB = [];
     let pdrbK = [];
     let sumber = [];
+    let interB = [];
+    let interK = [];
     for(const item of data){
       tahun.push(item['Tahun']);
       pdrbB.push(item['PDRB ADHB']);
       pdrbK.push(item['PDRB ADHK']);
       sumber.push(item['Sumber']);
+      interB.push(item['Interpretasi ADHB']);
+      interK.push(item['Interpretasi ADHK']);
     }
 
     if(sumber[0] != null){
@@ -723,6 +773,22 @@ fetch(`${url_pdrb}`)
 
       sumberdata.appendChild(sumberPenduduk);
       sumberdata2.appendChild(sumberPenduduk2);
+    }
+
+    function makeInter(interpre, key){
+      const inter = document.getElementById(key);
+      var interPenduduk = document.createElement("p");
+      interPenduduk.setAttribute("class","card-text text-start text-muted mt-2 mb-2");
+      interPenduduk.innerText = interpre[0];
+      inter.appendChild(interPenduduk);
+    }
+  
+    if(interB[0] != null){
+      makeInter(interB, "interAdhb");
+    }
+
+    if(interK[0] != null){
+      makeInter(interB, "interAdhk");
     }
     
     const table = document.getElementById("tableADHB");
@@ -747,7 +813,7 @@ fetch(`${url_pdrb}`)
       var trBody = document.createElement("tr");
       tdTahun.innerText = tahun[i];
       tdTahun.setAttribute("class","text-center");
-      tdPenduduk.innerText = pdrbB[i];
+      tdPenduduk.innerText = new Intl.NumberFormat().format(pdrbB[i]);
       tdPenduduk.setAttribute("class","text-center");
       trBody.appendChild(tdTahun);
       trBody.appendChild(tdPenduduk);
@@ -777,7 +843,7 @@ fetch(`${url_pdrb}`)
       var trBody2 = document.createElement("tr");
       tdTahun2.innerText = tahun[i];
       tdTahun2.setAttribute("class","text-center");
-      tdPenduduk2.innerText = pdrbK[i];
+      tdPenduduk2.innerText = new Intl.NumberFormat().format(pdrbK[i]);
       tdPenduduk2.setAttribute("class","text-center");
       trBody2.appendChild(tdTahun2);
       trBody2.appendChild(tdPenduduk2);
@@ -984,6 +1050,18 @@ fetch(`${url_naker}`)
     sumberPenduduk.setAttribute("class","card-subtitle text-start");
     sumberPenduduk.innerText = "Sumber: "+sumber[0];
     sumberdata.appendChild(sumberPenduduk);
+  }
+
+  function makeInter(interpre, key){
+    const inter = document.getElementById(key);
+    var interPenduduk = document.createElement("p");
+    interPenduduk.setAttribute("class","card-text text-start text-muted mt-2 mb-2");
+    interPenduduk.innerText = interpre[0];
+    inter.appendChild(interPenduduk);
+  }
+
+  if(interpretasi[0] != null){
+    makeInter(interpretasi, "interTP");
   }
 
     const table = document.getElementById("tableTP");
